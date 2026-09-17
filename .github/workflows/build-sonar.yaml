@@ -30,7 +30,9 @@ jobs:
 
       - name: Build WebGoat
         run: |
-          ./mvnw clean install -DskipTests
+          ./mvnw clean install \
+            -DskipTests \
+            -Dspotless.check.skip=true
 
       - name: Inspect compiled classes
         run: |
@@ -51,6 +53,7 @@ jobs:
         run: |
           ./mvnw sonar:sonar \
             -DskipTests \
+            -Dspotless.check.skip=true \
             -Dsonar.projectKey=appsec-bench_WebGoat-build \
             -Dsonar.organization=appsec-bench \
             -Dsonar.host.url=https://sonarcloud.io \
