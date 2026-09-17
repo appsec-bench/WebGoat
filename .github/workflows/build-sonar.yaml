@@ -45,13 +45,14 @@ jobs:
 
           echo
           echo "=== Sample compiled classes ==="
-          find . -type f -path "*/target/classes/*.class" | head -50
+          find . -type f -path "*/target/classes/*.class" | head -50 || true
 
       - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          ./mvnw sonar:sonar \
+          ./mvnw \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:5.5.0.6356:sonar \
             -DskipTests \
             -Dspotless.check.skip=true \
             -Dsonar.projectKey=appsec-bench_WebGoat-build \
