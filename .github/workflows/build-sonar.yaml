@@ -56,6 +56,6 @@ jobs:
             -DskipTests \
             -Dspotless.check.skip=true \
             -Dsonar.projectKey=appsec-bench_WebGoat-build \
-            -Dsonar.organization=appsec-bench \
+            -Dsonar.projectName="WebGoat Build Based"
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.verbose=true
